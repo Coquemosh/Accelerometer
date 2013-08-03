@@ -37,8 +37,9 @@ $(function(){
     $('#brujula .individual li').tap(function(){
        if($(this).index()==0){//Button "Iniciar"
            function onSuccess(heading) {
-             alert('Heading: ' + heading);
-            //    $('#brujula h2').html('Direction: ' + heading + '<br>');
+             //alert('Heading: ' + heading.magneticHeading);
+                $('#brujula h2').html('magneticHeading: ' + heading.magneticHeading + '<br>' +
+                                      'trueHeading: ' + heading.trueHeading + '<br>');
              //  var element = document.getElementById('heading');
             //   element.innerHTML = 'Direction: ' + heading;
             };
