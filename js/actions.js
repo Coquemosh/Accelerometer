@@ -37,12 +37,10 @@ $(function(){
     $('#brujula .individual li').tap(function(){
        if($(this).index()==0){//Button "Iniciar"
            function onSuccess(heading) {
-             //alert('Heading: ' + heading.magneticHeading);
-             //   $('#brujula h2').html('magneticHeading: ' + heading.magneticHeading + '<br>' +
-             //                          'trueHeading: ' + heading.trueHeading + '<br>');
-               var element = document.getElementById('heading');
-               element.innerHTML = 'Direction: ' + heading;
-               $('#brujula h2').html(element.innerHTML);
+             //alert('Heading: ' + heading);
+                $('#brujula h2').html('magneticHeading: ' + Math.round(heading.magneticHeading) + '<br>');
+             //  var element = document.getElementById('heading');
+             //   element.innerHTML = 'Direction: ' + heading;
             };
             
             function onError() {
