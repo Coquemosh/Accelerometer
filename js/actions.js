@@ -11,7 +11,7 @@ $(function(){
     $('#acelerometro .individual li').tap(function(){
        if($(this).index()==0){//Button "Iniciar"
            function onSuccess(acceleration) {
-            $('#acelerometro h2').html('Acceleration X: ' + acceleration.x + '<br>' +
+                $('#acelerometro h2').html('Acceleration X: ' + acceleration.x + '<br>' +
                   'Acceleration Y: ' + acceleration.y + '<br>' +
                   'Acceleration Z: ' + acceleration.z + '<br>');
             };
@@ -23,6 +23,32 @@ $(function(){
             var options = { frequency: 500 };  // Update every .5 seconds. Atributo frequency
             
             watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
+       }
+       else{//Button "Detener"
+           if (watchID) {
+                navigator.accelerometer.clearWatch(watchID);
+                watchID = null;
+               $('#acelerometro h2').html('Detenido');
+            }
+       }
+    });
+    
+    //brujula
+    $('#brujula .individual li').tap(function(){
+       if($(this).index()==0){//Button "Iniciar"
+           function onSuccess(compass) {
+                $('#brujula h2').html('Direction: ' + compass + '<br>');
+             //  var element = document.getElementById('heading');
+            //    element.innerHTML = 'Direction: ' + heading;
+            };
+            
+            function onError() {
+                alert('onError!');
+            };
+            
+            var options = { frequency: 500 };  // Update every .5 seconds. Atributo frequency
+            
+            watchID = navigator.compass.watchHeading(compassSuccess, compassError, options);           
        }
        else{//Button "Detener"
            if (watchID) {
