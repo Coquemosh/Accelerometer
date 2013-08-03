@@ -36,17 +36,17 @@ $(function(){
     //brujula
     $('#brujula .individual li').tap(function(){
        if($(this).index()==0){//Button "Iniciar"
-           function onSuccess(compass) {
-                $('#brujula h2').html('Direction: ' + compass + '<br>');
+           function onSuccess(heading) {
+                $('#brujula h2').html('Direction: ' + heading + '<br>');
              //  var element = document.getElementById('heading');
-            //    element.innerHTML = 'Direction: ' + heading;
+            //   element.innerHTML = 'Direction: ' + heading;
             };
             
             function onError() {
                 alert('onError!');
             };
             
-            var options = { frequency: 500 };  // Update every .5 seconds. Atributo frequency
+            var options = { frequency: 3000 };  // Update every .5 seconds. Atributo frequency
             
             watchID = navigator.compass.watchHeading(compassSuccess, compassError, options);           
        }
